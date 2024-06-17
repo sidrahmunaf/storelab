@@ -63,11 +63,9 @@ Feature: Home Page Testing App
     And I click on search button on search field
     And I click on Armchair One product
     And I click on Add to cart button
-    And I wait 5 seconds
+    And I wait 2 seconds
     And I click on cart option
-    And I wait 5 seconds
     And I click on Checkout button
-    And I wait 5 seconds
     And I click on Add button
     And I type 123 street in field for Address
     And I type NY in field for City
@@ -99,11 +97,9 @@ Feature: Home Page Testing App
     And I click on search button on search field
     And I click on Armchair One product
     And I click on Add to cart button
-    And I wait 5 seconds
+    And I wait 2 seconds
     And I click on cart option
-    And I wait 5 seconds
     And I click on Checkout button
-    And I wait 5 seconds
     And I click on Add button
     And I scroll towards Save button
     And I click on Save button
@@ -120,11 +116,9 @@ Feature: Home Page Testing App
     And I click on search button on search field
     And I click on Armchair One product
     And I click on Add to cart button
-    And I wait 5 seconds
+    And I wait 2 seconds
     And I click on cart option
-    And I wait 5 seconds
     And I click on Checkout button
-    And I wait 5 seconds
     And I click on Add button
     And I type 123 street in field for Address
     And I type United States in field for Country
@@ -148,11 +142,9 @@ Feature: Home Page Testing App
     And I click on search button on search field
     And I click on Armchair One product
     And I click on Add to cart button
-    And I wait 5 seconds
+    And I wait 2 seconds
     And I click on cart option
-    And I wait 5 seconds
     And I click on Checkout button
-    And I wait 5 seconds
     And I click on Add button
     And I type 123 street in field for Address
     And I type United States in field for Country
@@ -176,11 +168,9 @@ Feature: Home Page Testing App
     And I click on search button on search field
     And I click on Armchair One product
     And I click on Add to cart button
-    And I wait 5 seconds
+    And I wait 2 seconds
     And I click on cart option
-    And I wait 5 seconds
     And I click on Checkout button
-    And I wait 5 seconds
     And I click on Add button
     And I type 123 street in field for Address
     And I type United States in field for Country
@@ -205,11 +195,9 @@ Feature: Home Page Testing App
     And I click on search button on search field
     And I click on Armchair One product
     And I click on Add to cart button
-    And I wait 5 seconds
+    And I wait 2 seconds
     And I click on cart option
-    And I wait 5 seconds
     And I click on Checkout button
-    And I wait 5 seconds
     And I click on Add button
     And I type 123 street in field for Address
     And I type United States in field for Country
@@ -233,11 +221,9 @@ Feature: Home Page Testing App
     And I click on search button on search field
     And I click on Armchair One product
     And I click on Add to cart button
-    And I wait 5 seconds
+    And I wait 2 seconds
     And I click on cart option
-    And I wait 5 seconds
     And I click on Checkout button
-    And I wait 5 seconds
     And I click on Add button
     And I type 123 street in field for Address
     And I type NY in field for City
@@ -280,11 +266,9 @@ Feature: Home Page Testing App
     And I click on search button on search field
     And I click on Armchair One product
     And I click on Add to cart button
-    And I wait 5 seconds
+    And I wait 2 seconds
     And I click on cart option
-    And I wait 5 seconds
     And I click on Checkout button
-    And I wait 5 seconds
     And I click on Add button
     And I type 123 street in field for Address
     And I type NY in field for City
@@ -312,4 +296,124 @@ Feature: Home Page Testing App
       United States
       85082
       """
+
+
+  @android @final
+  Scenario: User should see shipping rates after submitting shipping form
+    Given App should open successfully
+    And I click demo store option
+    And I click on available demo store
+    And I click on shop option
+    And I type sofa in search bar
+    And I click on search button on search field
+    And I click on Armchair One product
+    And I click on Add to cart button
+    And I wait 2 seconds
+    And I click on cart option
+    And I click on Checkout button
+    And I click on Add button
+    And I type 123 street in field for Address
+    And I type NY in field for City
+    And I type United States in field for Country
+    And I click on United States option in Country dropdown
+    And I close the keyboard
+    And I type Arizona in field for Province/State
+    And I click on Arizona option in Province/State dropdown
+    And I close the keyboard
+    And I type 85082 in field for Post/Zip Code
+    And I type adam in field for First Name
+    And I type clark in field for Last Name
+    And I type 773473 in field for Phone Number (optional)
+    And I scroll towards Save button
+    And I click on Save button
+    Then I should see the following saved address on checkout page
+      """
+      123 street
+      NY
+      United States
+      85082
+      """
+    And I should see Price - £16.00 GBP shipping rate
+
+
+  @android @final
+  Scenario: User should see no shipping rates after submitting shipping form with united kingdom address
+    Given App should open successfully
+    And I click demo store option
+    And I click on available demo store
+    And I click on shop option
+    And I type sofa in search bar
+    And I click on search button on search field
+    And I click on Armchair One product
+    And I click on Add to cart button
+    And I wait 2 seconds
+    And I click on cart option
+    And I click on Checkout button
+    And I click on Add button
+    And I type 123 street in field for Address
+    And I type LDN in field for City
+    And I type United Kingdom in field for Country
+    And I click on United Kingdom option in Country dropdown
+    And I close the keyboard
+    And I type England in field for Province/State
+    And I click on England option in Province/State dropdown
+    And I close the keyboard
+    And I type SW1W 0NY in field for Post/Zip Code
+    And I type adam in field for First Name
+    And I type clark in field for Last Name
+    And I type 773473 in field for Phone Number (optional)
+    And I scroll towards Save button
+    And I click on Save button
+    Then I should see the following saved address on checkout page
+      """
+      123 street
+      LDN
+      United Kingdom
+      SW1W 0NY
+      """
+    And I should see Price - £.00 GBP shipping rate
+
+
+  @android @final
+  Scenario: User should see correct payment summary after submitting shipping form
+    Given App should open successfully
+    And I click demo store option
+    And I click on available demo store
+    And I click on shop option
+    And I type sofa in search bar
+    And I click on search button on search field
+    And I click on Armchair One product
+    And I click on Add to cart button
+    And I wait 2 seconds
+    And I click on cart option
+    And I click on Checkout button
+    And I click on Add button
+    And I type 123 street in field for Address
+    And I type NY in field for City
+    And I type United States in field for Country
+    And I click on United States option in Country dropdown
+    And I close the keyboard
+    And I type Arizona in field for Province/State
+    And I click on Arizona option in Province/State dropdown
+    And I close the keyboard
+    And I type 85082 in field for Post/Zip Code
+    And I type adam in field for First Name
+    And I type clark in field for Last Name
+    And I type 773473 in field for Phone Number (optional)
+    And I scroll towards Save button
+    And I click on Save button
+    Then I should see the following saved address on checkout page
+      """
+      123 street
+      NY
+      United States
+      85082
+      """
+    And I should see Price - £16.00 GBP shipping rate
+    When I scroll towards Show More button
+    And I click on Show More button
+    Then I should see £2,671.00 GBP amount for total in payment summary
+    And I should see £2,655.00 GBP amount for subtotal in payment summary
+    And I should see £16.00 GBP amount for shipping in payment summary
+    And I should see £.00 GBP amount for tax in payment summary
 

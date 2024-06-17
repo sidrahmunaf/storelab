@@ -182,7 +182,7 @@ Feature: Home Page Testing App
     And I type clark in field for Last Name
     And I scroll towards Save button
     And I click on Save button
-    Then I should see Enter a valid ZIP code for United States error message
+    Then I should see Enter a valid ZIP code for the United States error message
 
 
   @android @final
