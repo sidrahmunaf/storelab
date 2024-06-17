@@ -113,4 +113,12 @@ public class HomePage {
             System.out.println("Error while scrolling to button: " + e.getMessage());
         }
     }
+
+    public WebElement getShippingRateLocator(String rate) {
+        return (AndroidDriverSetup.getAndroidDriver().findElement(By.xpath(String.format("//android.widget.TextView[@text='%s']", rate))));
+    }
+
+    public WebElement getSummaryPriceLocator(String price) {
+        return (AndroidDriverSetup.getAndroidDriver().findElement(By.xpath(String.format("//android.widget.TextView[@text='%s']", price))));
+    }
 }

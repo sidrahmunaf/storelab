@@ -105,7 +105,16 @@ public class HomeSteps extends Page {
     @When("^I scroll towards (.*) button$")
     public void iScrollTowardsXxxButton(String button) {
         getHomePage().scrollToButton(button);
+    }
 
+    @Then("^I should see (.*) shipping rate$")
+    public void iShouldSeeXxxShippingRate(String rate) {
+        Assert.assertTrue(getHomePage().getShippingRateLocator(rate).isDisplayed());
+    }
+
+    @Then("^I should see (.*) amount for (.*) in payment summary$")
+    public void iShouldSeeXxxAmountForXxxInPaymentSummary(String amount, String field) {
+        Assert.assertTrue(getHomePage().getSummaryPriceLocator(amount).isDisplayed());
     }
 }
 
